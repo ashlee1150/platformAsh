@@ -7,6 +7,8 @@ class Shape{
 	
 	}
 	draw(){
-		ctx.fillRect(this.x,this.y,this.width,this.height) //refering to fields in constructor instead of typing
+		let colorindex = '#'+Math.floor(Math.random()*16777215).toString(16)
+		CTX.fillStyle = colorindex
+		CTX.fillRect(this.x,this.y,this.width,this.height) //refering to fields in constructor instead of typing
 	}
 }
