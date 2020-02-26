@@ -1,0 +1,37 @@
+/*
+class Ground {
+  constructor(x, y, width, height) {
+  	this.x = x * gridSize
+  	this.y = (maxY - y) * gridSize
+  	this.width = width * gridSize
+  	this.height = height * gridSize
+  }
+
+  isBelow(x, y) {
+  	return (
+	this.x < x &&
+	x < this.x + this.width &&
+	y <= this.y
+  	)
+  }
+
+  contains(x, y) {
+  	return (
+	this.x < x &&
+	x < this.x + this.width &&
+	this.y < y &&
+	y < this.y + this.height
+  	)
+  }
+
+  draw() {
+    CTX.fillStyle ='darkgreen'
+    CTX.fillRect(
+  	this.x,
+  	this.y,
+  	this.width,
+  	this.height
+    )
+  }
+}
+*/
