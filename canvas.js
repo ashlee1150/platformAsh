@@ -1,68 +1,15 @@
-
+// set the canvas "resolution" to match the screen
 let CANVAS = document.getElementById("display")
 CANVAS.width = document.body.clientWidth
 CANVAS.height = document.body.clientHeight
 
+// create 2D context object for drawing on the CANVAS
 let CTX = CANVAS.getContext("2d")
 
-function ERASE (){
-CTX.fillStyle = "lightblue"
-CTX.fillRect(
-  0,
-  0,
-  CANVAS.width,
-  CANVAS.height
+// draw a blue rectangle the size of the screen
+function ERASE() {
+  CTX.fillStyle = "pink"
+  CTX.fillRect(0, 0, CANVAS.width, CANVAS.height)
+}
 
- )
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-let maxY = 12
-let gridSize = Math.ceil(CANVAS.height / maxY)
-*/
-
-/*ctx.fillStyle = "cyan"
-ctx.fillRect(0, 0, canvas.width, canvas.height)
-ctx.fillStyle = "black"
-ctx.fillRect(0, 0, canvas.width, canvas.height / 2)
-ctx.fillStyle = "white"
-ctx.fillRect(0, 0, canvas.width / 2, canvas.height)
-ctx.fillStyle = "red"
-ctx.fillRect(0, 0, canvas.width / 2, canvas.height / 2)
-*/
-
-/*
-
-
-console.log(CANVAS)
-
-
-*/
+let GRIDSIZE = CANVAS.height/12 //12 because uhh he said so?

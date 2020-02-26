@@ -1,35 +1,14 @@
-
-class Shape {
- constructor(x, y, width, height, color) {
- this.x = x
- this.y = y
- this.width = width
- this.height = height
-
- 	let colorIndex = Math.random()
-	//let color = "red"
-	if (colorIndex > 0.10 && 0.30) {
-		color = "blue"
-    }
-	if (colorIndex < 0.10) {
-		color = "green"
+class Shape{
+	constructor(x,y,width, height){
+		this.x = x //variables or fields hehe
+		this.y = y
+		this.width = width
+		this.height = height
+	
 	}
-	if (colorIndex > 0.30 && 0.6) {
-		color = "red"
-    }
-    if (colorIndex > 0.60 ) {
-		color = "cyan"
-    }
- }
- draw() {
-
-	CTX.fillStyle = color
-
- 	CTX.fillRect(
-    this.x,
-    this.y, 
-    this.width, 
-    this.height
-  )
- }
+	draw(){
+		let colorindex = '#'+Math.floor(Math.random()*16777215).toString(16)
+		CTX.fillStyle = colorindex
+		CTX.fillRect(this.x,this.y,this.width,this.height) //refering to fields in constructor instead of typing
+	}
 }
