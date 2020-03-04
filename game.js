@@ -1,39 +1,49 @@
 
-// state
-let hero = new Hero()
-let keyPressed = {}
+class Game{
+  constructor(){
 
-// setup a function to run whenever a key is pressed
-window.addEventListener("keydown", event => {
-  keyPressed[event.code] = true
-})
-window.addEventListener("keyup", event => {
-  keyPressed[event.code] = false
-})
+    // state
+    this.hero = new Hero()
+    this.platforms = []
+    this.keyPressed = {}//curly brackets for tables or arrays?
 
-function loop() {
-  console.log(keyPressed)
-  if (keyPressed["ArrowUp"]) {
-    hero.jump()
-  }
-  if (keyPressed["ArrowDown"]) {
-    hero.moveDown()
-  }
-  if (keyPressed["ArrowLeft"]) {
-    hero.moveLeft()
-  }
-  if (keyPressed["ArrowRight"]) {
-    hero.moveRight()
-  }
+    // setup a function to run whenever a key is pressed
+    window.addEventListener("keydown", event => {
+      this.keyPressed[event.code] = true
+    })
+    window.addEventListener("keyup", event => {
+      this.keyPressed[event.code] = false
+    })
 
-  hero.step()
-  // draw everything
-  ERASE()
-  hero.draw()
+    this.platforms.push(new Platform(GRIDSIZE, GRIDSIZE*8, GRIDSIZE*3, GRIDSIZE))
+    this.loop()
+  }
+ loop() {
+    //console.log(keyPressed)
+    if (this.keyPressed["ArrowUp"]) {
+      this.hero.jump()
+    }
+    if (this.keyPressed["ArrowDown"]) {
+      this.hero.moveDown()
+    }
+    if (this.keyPressed["ArrowLeft"]) {
+      this.hero.moveLeft()
+    }
+    if (this.keyPressed["ArrowRight"]) {
+      this.hero.moveRight()
+    }
 
-  // run loop again!
-  setTimeout(loop, 1000 / 60)
+    this.hero.step(this.platforms)
+    // draw everything
+    ERASE()
+    this.platforms.forEach(p => p.draw())
+    this.hero.draw()
+
+    // run loop again!
+    setTimeout(()=>this.loop(), 1000 / 60)
+  }
 }
 
 // run loop once on startup to get it started
-loop()
+//loop()
+new Game()
